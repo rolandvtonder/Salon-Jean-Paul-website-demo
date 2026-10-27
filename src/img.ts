@@ -12,14 +12,18 @@ const WIDTHS: Record<string, number[]> = {
   team: [480, 960, 1600],
 }
 
-export const photo = (name: string) => `/assets/${name}.webp`
+/* The site may be served from a sub-folder (GitHub Pages serves it under
+   /<repo>/), so asset paths start from Vite's base rather than from /. */
+const BASE = import.meta.env.BASE_URL
+
+export const photo = (name: string) => `${BASE}assets/${name}.webp`
 
 /** srcset for a photo, or undefined when it only has one size. The largest
     width is the original file. */
 export function photoSet(name: string) {
   const w = WIDTHS[name]
   if (!w) return undefined
-  return w.map((x, i) => `/assets/${name}${i === w.length - 1 ? '' : `-${x}`}.webp ${x}w`).join(', ')
+  return w.map((x, i) => `${BASE}assets/${name}${i === w.length - 1 ? '' : `-${x}`}.webp ${x}w`).join(', ')
 }
 
 /** Common `sizes` values for the layouts the photos appear in. */

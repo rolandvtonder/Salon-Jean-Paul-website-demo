@@ -80,7 +80,7 @@ function Tile({ i, t, style }: { i: number; t: number; style: CSSProperties }) {
     >
       <div style={{ position: 'absolute', inset: 0, borderRadius: 'inherit', overflow: 'hidden' }}>
         <img
-          src={`/assets/${c.art}.webp`}
+          src={photo(c.art)}
           alt=""
           className="transition-transform duration-500 group-hover:scale-105"
           style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', objectPosition: c.pos }}

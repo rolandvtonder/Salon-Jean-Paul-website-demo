@@ -176,7 +176,7 @@ export function Barbers() {
           <Reveal as="li" key={b.name} delay={i * 0.06} className="panel rounded-[36px] md:rounded-[46px] overflow-hidden flex flex-col">
             <div className="relative aspect-[4/5] overflow-hidden">
               <img
-                src={`/assets/${b.img}.webp`}
+                src={photo(b.img)}
                 alt={`${b.name}, ${b.role.toLowerCase()} at Salon Jean Paul N1 City`}
                 loading="lazy"
                 width={294}
@@ -262,7 +262,7 @@ export function Gallery() {
             ['twists-after', 'After', 'Longer, defined twists after the appointment'],
           ].map(([src, tag, alt]) => (
             <figure key={src} className="relative m-0 overflow-hidden">
-              <img src={`/assets/${src}.webp`} alt={alt} loading="lazy" className="absolute inset-0 w-full h-full object-cover" />
+              <img src={photo(src)} alt={alt} loading="lazy" className="absolute inset-0 w-full h-full object-cover" />
               <figcaption className="label absolute left-4 bottom-4 rounded-full px-3 py-1.5" style={{ background: 'rgba(8,12,20,0.75)', color: '#fff' }}>
                 {tag}
               </figcaption>
@@ -309,7 +309,7 @@ export function Careers() {
         </div>
         <div className="relative min-h-[260px]">
           <img
-            src="/assets/careers.webp"
+            src={photo('careers')}
             alt="Barber at Salon Jean Paul cutting a client's hair in front of the blue wall"
             loading="lazy"
             className="absolute inset-0 w-full h-full object-cover"
